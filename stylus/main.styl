@@ -1,0 +1,170 @@
+html
+	font-family $font
+	font-size 16px
+	line-height 1.6
+	letter-spacing 0
+	box-sizing border-box
+	-webkit-font-smoothing antialiased
+	text-rendering optimizeLegibility
+	-moz-osx-font-smoothing grayscale
+	font-feature-settings 'liga'
+	direction ltr
+	min-height 100vh
+*,
+*:before,
+*:after
+	box-sizing inherit
+body
+	width 100%
+	// overflow-x hidden
+	min-height 100vh
+.body
+	width 100%
+	// overflow-x hidden
+	min-height 100vh
+::-moz-selection
+	background $purple
+	text-shadow none
+	color white
+
+::selection
+	background $purple
+	text-shadow none
+	color white
+
+
+.flex
+	display flex
+	align-items center
+	justify-content space-between
+.container
+	width 960px
+	max-width 100%
+	margin 0 auto
+	position relative
+	for $container_width in 1400 1000 900 800 700 600 500 400 300
+		&--{$container_width}
+			width $container_width px
+.tablet--only
+	display none!important
+.mobile--only
+	display none!important
+.desktop--hide
+	display none!important
++break(tablet)
+	.tablet--only
+		display block!important
+	.tablet--hide
+		display none!important
+	.desktop--only
+		display none!important
+	.desktop--hide
+		display block!important
+	.container
+		width 600px
+	.body
+		padding-right 60px
++break(mobile)
+	.mobile--only
+		display block!important
+	.mobile--hide
+		display none!important
+	.container
+		width 360px
+		max-width 100%
+	.body
+		padding-right 0
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video
+	vertical-align middle
+	max-width 100%
+
+fieldset
+	border 0
+	margin 0
+	padding 0
+
+textarea
+	resize vertical
+
+/* ==========================================================================
+	Browser Upgrade Prompt
+	========================================================================== */
+
+.browserupgrade
+	margin 0.2em 0
+	background #ccc
+	color #000
+	padding 0.2em 0
+
+@media print
+	*,
+	*:before,
+	*:after
+		background transparent !important
+		color #000 !important
+		box-shadow none !important
+		text-shadow none !important
+
+
+	a,
+	a:visited
+		text-decoration underline
+
+
+	a[href]:after
+		content " (" attr(href) ")"
+
+
+	abbr[title]:after
+		content " (" attr(title) ")"
+
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after
+		content ""
+
+
+	pre
+		white-space pre-wrap !important
+
+	pre,
+	blockquote
+		border 1px solid #999
+		page-break-inside avoid
+
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+
+	thead
+		display table-header-group
+
+
+	tr,
+	img
+		page-break-inside avoid
+
+
+	p,
+	h2,
+	h3
+		orphans 3
+		widows 3
+
+
+	h2,
+	h3
+		page-break-after avoid

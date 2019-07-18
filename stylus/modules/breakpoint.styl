@@ -1,0 +1,10 @@
+break($point)
+    if $point == tablet
+        @media screen and (max-width: 1050px)
+            {block}
+    else if $point == mobile
+        @media screen and (max-width: 599px)
+            {block}
+    else if $point == non-mobile
+        @media screen and (min-width: 1150px)
+            {block}

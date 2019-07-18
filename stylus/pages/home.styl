@@ -1,0 +1,208 @@
+@keyframes banner_home
+	from
+		width 100%
+	to
+		width 115%
+@keyframes banner_home_mobile
+	from
+		height 100%
+	to
+		height 130%
+.banner--home
+	.container
+		display flex
+		height 100%
+		align-items center
+.home__pbanner
+	background url('/assets/img/banner-contact.jpg') center repeat
+	height 600px
+	background-size cover
+.home__bgp
+	background url('/assets/img/bg-project.svg') center top repeat-x
+	height 140px
+	margin-top -240px
+	z-index 2
+	position relative
+.home__bg
+	background white
+	position relative
+.home__banner__top
+	color white
+.home__banner__title
+	font 300 45px/80px $font
+.home__banner__button
+	border 1px solid white
+	background rgba(black, .8)
+	color white
+	text-transform uppercase
+	font normal 10px/18px $font
+	letter-spacing 2px
+	padding 10px 20px
+	display inline-block
+	margin-top 20px
+.home__icon
+	display flex
+	margin-top 70px
+	align-items center
+	img
+		width 80px
+.home__icon__text
+	color $purple
+	text-transform uppercase
+	font-size 13px
+	letter-spacing 1px
+	margin-left 10px
+	span
+		font 300 52px/52px $font 
+		display block
+.opening
+	padding-bottom 100px
+.home__more
+	font bold 10px/12px $font
+	color $purple
+	text-transform uppercase
+	letter-spacing 2px
+	text-align center
+	display block
+	margin-top 70px
+	&:after
+		content ''
+		background $gold
+		height 1px
+		width 40px
+		margin 30px auto 0
+		display block
+		transition all .4s
+		opacity 0
+		transform translateX(-10px)
+	&:hover
+		&:after
+			opacity 1
+			transform translateX(0)
+.home__plta__desc
+	color $purple
+	background white
+	position relative
+	z-index 1
+	padding 30px 50px
+.plta
+	padding 0 0 100px 0
+.home__plta
+	position relative
+	display inline-flex
+	align-items flex-start
+	&--pakkat
+		margin-top 100px
+		.home__plta__desc
+			margin-left -40px
+			margin-top -50px
+	&--putih
+		margin-top -50px
+		.home__plta__desc
+			margin-right -40px
+			margin-bottom 20px
+			align-self flex-end
+			text-align right
+			order 1
+			.home__plta__loc
+				&:after
+					margin-left auto
+		.home__plta__img
+			order 2
+	&--future
+		margin-top 100px
+		.home__plta__desc
+			margin-left -40px
+			margin-top 50px
+					
+.home__plta__num
+	color $gold
+	font 300 30px/30px $font
+.home__plta__comp
+	font 300 10px/30px $font
+	text-transform uppercase
+	letter-spacing 1px
+.home__plta__title
+	font bold 26px/30px $font
+	text-transform uppercase
+.home__plta__loc
+	font 300 15px/30px $font
+	&:after
+		content ''
+		height 1px
+		width 40px
+		display block
+		background $gold
+		margin-top 10px
+
+
++break(tablet)
+	.home__icons
+		display flex
+		justify-content space-between
+		margin-bottom 30px
+	.home__icon
+		margin-top 0
+		img
+			width 50px
+	.home__icon__text
+		font-size 11px
+		span
+			font 300 40px/40px $font
+	.home__pbanner
+		height 350px
+	.opening
+		padding 0
+		.container
+			padding 40px 20px 70px
+	.home__bgp
+		background-size cover
+		height 80px
+		margin-top -80px
+	.bgp
+		padding 0 20px
+	.plta
+		.container
+			padding 0 20px
+	.home__plta__img
+		width 250px
+
++break(mobile)
+	.banner--home
+		.container
+			align-items flex-end
+			padding-bottom 100px
+	.home__banner__top
+		text-align center
+	.home__banner__title
+		font 300 30px/40px $font
+	.home__icons
+		display block
+		justify-content center
+	.home__icon
+		width 150px
+		margin 0 auto 20px
+	.home__more
+		text-align left
+	.home__plta
+		display block
+		&--pakkat
+			.home__plta__desc
+				margin 0
+				padding 20px 0
+		&--putih
+			margin-top 100px
+			.home__plta__desc
+				text-align left
+				margin 0
+				padding 20px 0
+				.home__plta__loc
+					&:after
+						margin-left 0
+					
+
+
+
+
+
+
