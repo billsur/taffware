@@ -6,11 +6,21 @@ head
   meta(name='description' content='Lampu senter, tas laptop, humidifier, dll')
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(rel='stylesheet' href='css/core.css')
-div
-  img(src='logo.png' alt='' width='400')
-  br
-  br
-  | Coming soon
-  br
-  a(href='mailto:inquiry@taffware.com')
-    b inquiry@taffware.com
+body
+  header
+    .container
+      .header__logo
+        img(src="img/taffware-logo.png")
+      a.header__menu(href="#sb")
+        span Sub-Brands
+        i.mi.mi-18 keyboard_arrow_down
+      a.header__menu(href="#ab")
+        span About
+      a.header__menu(href="#dl")
+        span Deals
+      a.header__menu(href="#sc")
+        span Showcase
+      a.header__menu(href="#hl")
+        span Help
+      a.header__menu(href="#bs")
+        span Business
