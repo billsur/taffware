@@ -1,0 +1,41 @@
+arrow()
+  position absolute
+  cursor pointer
+  top 40%
+  transition 0.3s
+  width 40px
+  height 40px
+
+arrowLeft()
+  arrow()
+  background url('/img/svg/arrow-left-black.svg') center top / cover no-repeat
+  left 15px
+  &:hover
+    background url('/img/svg/arrow-left-active.svg') center top / cover no-repeat
+
+arrowRight()
+  arrow()
+  background url('/img/svg/arrow-right-black.svg') center top / cover no-repeat
+  right 15px
+  &:hover
+    background url('/img/svg/arrow-right-active.svg') center top / cover no-repeat
+.hb
+  margin-top 65px
+  &__slides
+    &:focus
+      outline none
+  &__img
+    height 400px
+  &__detail
+    position absolute
+    top 0
+    width 350px
+    margin-left 80px
+  &__arrow
+    &--prev
+      arrowLeft()
+    &--next
+      arrowRight()
+  .slick-dots
+    right 220px
+    bottom 60px
