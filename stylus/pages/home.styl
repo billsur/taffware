@@ -29,13 +29,30 @@ arrowRight()
   &__detail
     position absolute
     top 0
-    width 350px
-    margin-left 80px
+    width 390px
+    margin 60px 0 0 80px
+    &__title
+      font 32px/40px $font
+      margin-bottom 10px
+    &__desc
+      font 16px/24px $font
+    &__link
+      margin-top 15px
+      &__button
+        margin-top 5px
+        a
+          img
+            height 35px
+            width auto
+          &:nth-child(2)
+            margin 0 10px
+          &:focus
+            outline none
   &__arrow
     &--prev
       arrowLeft()
     &--next
       arrowRight()
   .slick-dots
-    right 220px
-    bottom 60px
+    right 36.666%
+    bottom 40px
