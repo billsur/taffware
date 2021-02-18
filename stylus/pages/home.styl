@@ -141,6 +141,44 @@ button($bgColor = 'white', $textColor = 'black')
   &__detail__desc
     blockquote
       font 800 26px/34px $font
-
+.hl
+  background-color #F5F5F5
+  padding 40px 0 80px
+  .accordions
+    overflow hidden
+    input
+      position absolute
+      opacity 0
+      z-index -1
+      &:checked
+        +.accordion-label
+          &:before
+            transform rotate(90deg) scale(0.6)
+        &~.accordion-content
+          max-height 100vh
+          padding 0 20px 25px 110px
+    .accordion
+      width 100%
+      color black
+      overflow hidden
+      border-bottom 1px solid $gray
+      &-label
+        display flex
+        justify-content flex-start
+        padding 20px 15px
+        font 800 22px/30px $font
+        cursor pointer
+        align-items center
+        &::before
+          content url('/img/svg/arrow-icon.svg');
+          transform scale(0.6)
+          margin-right 15px
+          transition all .4s
+      &-content
+        max-height 0
+        padding 0 20px 0 110px
+        color $gray
+        font 500 18px/28px $font
+        transition all .35s
 .button--red
   button($red, white)
