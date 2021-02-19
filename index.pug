@@ -6,7 +6,6 @@ head
   meta(name='description' content='Lampu senter, tas laptop, humidifier, dll')
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(rel='stylesheet' href='css/core.css')
-  script(src="/js/core-dist.js")
 body
   header
     .container
@@ -156,7 +155,7 @@ body
             img.dl__loading__img(src="img/svg/loading.svg", alt="loading")
             | Loading
           .dl__list
-          .dl__more
+          .dl__more(hidden="true")
             button.button--red SHOW MORE
   .sc#sc
     .container
@@ -268,3 +267,4 @@ body
       span.text--center
         i.mi.mi-18 copyright
         | 2021 TaffWare. All rights reserved
+  script(src="/js/core-dist.js")

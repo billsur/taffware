@@ -131,6 +131,8 @@ button($bgColor = 'white', $textColor = 'black')
     &__img
       width 60px
   &__list
+    min-height 800px
+    padding-top 20px
     display grid
     grid-template-columns auto auto auto auto
     grid-gap 20px
@@ -140,10 +142,15 @@ button($bgColor = 'white', $textColor = 'black')
       border-radius 15px
       padding 20px
       &__img
-        margin-bottom 15px
+        width 200px
+        margin 0 auto 15px
       &__title
         font-weight bold
         margin-bottom 10px
+        display -webkit-box
+        -webkit-line-clamp 3
+        -webkit-box-orient vertical
+        overflow hidden
       &__price
         text-decoration line-through
         margin 0
@@ -152,13 +159,13 @@ button($bgColor = 'white', $textColor = 'black')
           display flex
           align-items center
           p
-            color black
+            color red
             font-weight bold
         &__percentage
           margin-left 5px
           color white
           font-weight bold
-          padding 5px 5px 5px 10px
+          padding 7px 5px 5px 10px
           background url('/img/svg/price-bubble.svg') center / 100% 100% no-repeat
       &__button
         margin-top 15px
