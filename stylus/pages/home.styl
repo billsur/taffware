@@ -106,6 +106,71 @@ button($bgColor = 'white', $textColor = 'black')
       color white
     &__desc
       color white
+.dl
+  background-color $light-grey
+  padding 10px 0 80px 0
+  &__banner
+    margin-bottom 20px
+  &__tabs
+    display flex
+    justify-content space-around
+    cursor pointer
+  &__tab
+    padding 5px 15px
+    border-radius 20px
+    transition all .2s ease-in
+    &:hover
+      background $gray
+      color white
+    &.active
+      background black
+      color white
+  &__loading
+    text-align center
+    color $red
+    &__img
+      width 60px
+  &__list
+    display grid
+    grid-template-columns auto auto auto auto
+    grid-gap 20px
+    &__item
+      background white
+      border .5px solid #CCCCCC
+      border-radius 15px
+      padding 20px
+      &__img
+        margin-bottom 15px
+      &__title
+        font-weight bold
+        margin-bottom 10px
+      &__price
+        text-decoration line-through
+        margin 0
+      &__discount
+        &__price
+          display flex
+          align-items center
+          p
+            color black
+            font-weight bold
+        &__percentage
+          margin-left 5px
+          color white
+          font-weight bold
+          padding 5px 5px 5px 10px
+          background url('/img/svg/price-bubble.svg') center / 100% 100% no-repeat
+      &__button
+        margin-top 15px
+        button
+          width 100%
+      p
+        margin 0
+  &__more
+    margin-top 40px
+    text-align center
+    button
+      padding 15px 30px
 .sc
   margin 60px 0
   &__banner__slides
@@ -142,7 +207,7 @@ button($bgColor = 'white', $textColor = 'black')
     blockquote
       font 800 26px/34px $font
 .hl
-  background-color #F5F5F5
+  background-color $light-grey
   padding 40px 0 80px
   .accordions
     overflow hidden
@@ -201,5 +266,8 @@ button($bgColor = 'white', $textColor = 'black')
     display flex
     justify-content center
     align-items center
+button
+  border none
+  cursor pointer
 .button--red
   button($red, white)
