@@ -137,6 +137,7 @@ button($bgColor = 'white', $textColor = 'black')
     grid-template-columns auto auto auto auto
     grid-gap 20px
     &__item
+      position relative
       background white
       border .5px solid #CCCCCC
       border-radius 15px
@@ -174,6 +175,41 @@ button($bgColor = 'white', $textColor = 'black')
           width 100%
       p
         margin 0
+    &__store
+      min-width 200px
+      &__content
+        display flex
+        flex-direction column
+        text-align center
+        align-items center
+        justify-content center
+        span
+          font bold 22px/26px $font
+          color black
+          padding 0 20px
+          margin 20px 0
+        a
+          margin 10px
+      &__divider
+        position absolute
+        border 1px solid #CCCCCC
+        bottom 75px
+        left 0
+        width 100%
+      &__close
+        position absolute
+        bottom 15px
+        left 25px
+        width 80%
+        button
+          display flex
+          align-items center
+          justify-content center
+          text-align center
+          width 100%
+          font-size 18px
+          i
+            margin-right 10px
   &__more
     margin-top 40px
     text-align center
@@ -277,8 +313,11 @@ button($bgColor = 'white', $textColor = 'black')
 button
   border none
   cursor pointer
-.button--red
-  button($red, white)
+.button
+  button(white, black)
+  border 2px solid $gray
+  &--red
+    button($red, white)
   &:hover
     opacity 0.7
   &:focus

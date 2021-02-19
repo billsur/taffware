@@ -10,7 +10,6 @@ const homeBannerPrevArrow = $('.hb__arrow--prev');
 const showcaseBannerSlides = $('.sc__banner__slides');
 const showcaseBannerNextArrow = $('.sc__banner__arrow--next');
 const showcaseBannerPrevArrow = $('.sc__banner__arrow--prev');
-
 const showcaseDetailSlides = $('.sc__detail__slides');
 
 const dealsLoading = $('.dl__loading');
@@ -18,7 +17,10 @@ const dealsList = $('.dl__list');
 const dealsLoadMoreButton = $('.dl__more__button');
 
 // ---- API ---- //
-const api = 'https://apimobile.jakartanotebook.com/v1.6/products/search';
+const listItemURL = 'https://apimobile.jakartanotebook.com/v1.6/products/search';
+const jaknotStoreURL = 'https://www.jakartanotebook.com/search';
+const jakmallStoreURL = 'https://www.jakmall.com/search';
+const tokopediaStoreURL = 'https://www.tokopedia.com/taffware/product';
 
 // ---- Variable Data ---- //
 var listData = [];
@@ -67,39 +69,84 @@ function nextPage() {
 }
 
 function getListByBrand () {
-  console.log(params)
   dealsLoading.show();
   $.ajax({
-    url: api,
+    url: listItemURL,
     type: 'get',
     dataType: 'json',
     data: params,
     success: function (res) {
       dealsLoading.hide()
 
-      listData = res.data.hits;
+      let responseData = res.data.hits;
+      listData = listData.concat(responseData)
+
       paging = res.meta;
 
-      listData.forEach(item => {
+      responseData.forEach((item, index) => {
         dealsList.append(
-          `<div class="dl__list__item">
-            <div class="dl__list__item__img">
-              <img src="${item.image.large[0]}" alt=""></div>
-            <div class="dl__list__item__title">
-              <span>${item.product.Name}</span>
+          `<div class="dl__list__item" data-order="${index}">
+            <div class="dl__list__item__detail">
+              <div class="dl__list__item__img">
+                <img src="${item.image.large[0]}" alt=""></div>
+              <div class="dl__list__item__title">
+                <span>${item.product.Name}</span>
+              </div>
+              <div class="dl__list__item__price">
+                <p class="p--small">${formatRupiah(item.price_normal)}</p>
+              </div>
+              <div class="dl__list__item__discount__price">
+                <p>${formatRupiah(item.discount_price)}</p><small class="dl__list__item__discount__percentage">${getDiscount(item.discount_price, item.price_normal)}</small>
+              </div>
+              <div class="dl__list__item__button">
+                <button class="button--red">BUY</button>
+              </div>
             </div>
-            <div class="dl__list__item__price">
-              <p class="p--small">${formatRupiah(item.price_normal)}</p>
-            </div>
-            <div class="dl__list__item__discount__price">
-              <p>${formatRupiah(item.discount_price)}</p><small class="dl__list__item__discount__percentage">${getDiscount(item.discount_price, item.price_normal)}</small>
-            </div>
-            <div class="dl__list__item__button">
-              <button class="button--red">BUY</button>
+            <div class="dl__list__store" hidden>
+              <div class="dl__list__store__content">
+                <span>Buy this product at:</span>
+                <a href="${jaknotStoreURL}?key=${item.sku}" target="_blank">
+                  <img src="img/svg/jaknot-button-red.svg">
+                </a>
+                <a href="${jakmallStoreURL}?q=${item.sku}" target="_blank">
+                  <img src="img/svg/jakmall-button-red.svg">
+                </a>
+                <a href="${tokopediaStoreURL}?keyword=${item.sku}" target="_blank">
+                  <img src="img/svg/tokopedia-button-red.svg">
+                </a>
+              </div>
+              <div class="dl__list__store__divider">
+              </div>
+              <div class="dl__list__store__close">
+                <button class="button"><i class="mi mi-20 text--red">cancel</i>Close</button>
+              </div>
             </div>
           </div>`
         );
       });
+
+      // Listener For "Buy Button" Each List
+      $('.dl__list__item__button').each(function(i,e){
+        $(e).click(function(){
+          let anotherItems = $('.dl__list__item').not($(this).parent().parent());
+          let selectedItems =  $(this).parent().parent();
+
+          anotherItems.find('.dl__list__item__detail').show();
+          anotherItems.find('.dl__list__store').hide();
+
+          selectedItems.find('.dl__list__item__detail').slideUp('300');
+          selectedItems.find('.dl__list__store').slideDown('600');
+        })
+      })
+
+      // Listener For "Close" Each List
+      $('.dl__list__store__close').each(function(i,e){
+        $(e).click(function(){
+          $(this).parent().parent().find('.dl__list__item__detail').slideDown('slow')
+          $(this).parent().parent().find('.dl__list__store').slideUp('400')
+        })
+      })
+
 
       if(paging.limit * paging.page < paging.total) {
         dealsLoadMoreButton.text('SHOW MORE');
@@ -109,7 +156,7 @@ function getListByBrand () {
       }
     },
     error: function (err) {
-      alert(err)
+      alert('Mohon Maaf Terjadi Kesalahan.')
     }
   });
 }
