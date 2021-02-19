@@ -15,7 +15,7 @@ const showcaseDetailSlides = $('.sc__detail__slides');
 
 const dealsLoading = $('.dl__loading');
 const dealsList = $('.dl__list');
-const dealsShowMore = $('.dl__more')
+const dealsLoadMoreButton = $('.dl__more__button');
 
 // ---- API ---- //
 const api = 'https://apimobile.jakartanotebook.com/v1.6/products/search';
@@ -27,7 +27,7 @@ var params = {
   sort: 'newest',
   page: 1,
   limit: 8,
-  q: ''
+  q: 'taffstudio'
 };
 
 $(function(){
@@ -52,10 +52,22 @@ $(function(){
     }
   }));
 
+  dealsLoadMoreButton.click(function() {
+    $(this).html('<img src="img/svg/loading-white.svg" height="35px" alt="loading">');
+    nextPage();
+  })
+
   getListByBrand()
 })
 
+function nextPage() {
+  params.page += 1;
+
+  getListByBrand()
+}
+
 function getListByBrand () {
+  console.log(params)
   dealsLoading.show();
   $.ajax({
     url: api,
@@ -89,7 +101,12 @@ function getListByBrand () {
         );
       });
 
-      paging.limit * paging.page < paging.total ? dealsShowMore.show() : dealsShowMore.hide()
+      if(paging.limit * paging.page < paging.total) {
+        dealsLoadMoreButton.text('SHOW MORE');
+        dealsLoadMoreButton.show();
+      } else {
+        dealsLoadMoreButton.hide()
+      }
     },
     error: function (err) {
       alert(err)
