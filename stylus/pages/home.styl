@@ -289,23 +289,50 @@ button($bgColor = 'white', $textColor = 'black')
         color $gray
         font 500 18px/28px $font
         transition all .35s
-.tseo
+.tc,
+.tseo,
+.tcopy
   background $red
-  padding 100px 0 60px 0
+  .container
+    padding 40px 0
+  h1,
+  h2,
+  p,
+  a,
+  b
+    color white
+.tc
+  padding-top 30px
+  .container
+    border-bottom 1px solid white
+    display flex
+  &__inquiry,
+  &__link
+    width 40%
+  &__link
+    display flex
+    justify-content space-around
+    &__store,
+    &__socmed
+      display flex
+      flex-direction column
+  p,
+  a
+    margin 5px 0
+  a
+    text-decoration underline
+    img
+      margin-right 5px
+.tseo
   h1
     font bold 38px $font-h
   h2
     font bold 26px $font-h
-  h1,
-  h2,
-  p
-    color white
 .tcopy
   background $red
   color white
   .container
     border-top 1px solid white
-    padding 40px 0 60px
   span
     display flex
     justify-content center
