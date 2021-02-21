@@ -2,6 +2,9 @@
 // @codekit-prepend "vendor/slick.min.js";
 
 // ---- Selector ------ //
+const subBrandMenu = $('.header__menu.expandable')
+const subBrandList = $('.header__sub__brand')
+
 const allBannerSlides = $('.hb__slides, .sc__banner__slides');
 const homeBannerSlides = $('.hb__slides');
 const homeBannerNextArrow = $('.hb__arrow--next');
@@ -71,6 +74,10 @@ $(function(){
   dealsLoadMoreButton.click(function() {
     $(this).html('<img src="img/svg/loading-white.svg" height="35px" alt="loading">');
     nextPage();
+  })
+
+  subBrandMenu.click(function() {
+    subBrandList.toggleClass('header__sub__brand--show');
   })
 
   getListByBrand()

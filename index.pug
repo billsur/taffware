@@ -9,21 +9,39 @@ head
 body
   header
     .container
-      .header__logo
-        img(src="img/taffware-logo.png")
-      a.header__menu(href="#sb")
-        span Sub-Brands
-        i.mi.mi-18 keyboard_arrow_down
-      a.header__menu(href="#ab")
-        span About
-      a.header__menu(href="#dl")
-        span Deals
-      a.header__menu(href="#sc")
-        span Showcase
-      a.header__menu(href="#hl")
-        span Help
-      a.header__menu(href="#bs")
-        span Business
+      .header__list
+        .header__logo
+          img(src="img/taffware-logo.png")
+        a.header__menu.expandable(href="#sb")
+          span Sub-Brands
+          i.mi.mi-18 keyboard_arrow_down
+        a.header__menu(href="#ab")
+          span About
+        a.header__menu(href="#dl")
+          span Deals
+        a.header__menu(href="#sc")
+          span Showcase
+        a.header__menu(href="#hl")
+          span Help
+        a.header__menu(href="mailto:info@taffware.com")
+          span Business
+      .header__sub__brand
+        a(href="http://bit.ly/Website-Taffsport" target="_blank")
+          img(src="img/taffsport-logo.png", alt="taffsport-logo")
+        a(href="http://bit.ly/Sub-brand-TaffLED" target="_blank")
+          img(src="img/taffled-logo.png", alt="taffled-logo")
+        a.disabled(href="#")
+          img(src="img/taffguard-logo.png", alt="taffguard-logo")
+        a.disabled(href="#")
+          img(src="img/taffstudio-logo.png", alt="taffstudio-logo")
+        a.disabled(href="#")
+          img(src="img/taffpack-logo.png", alt="taffpack-logo")
+        a.disabled(href="#")
+          img(src="img/taffware-hms.png", alt="taffware-hms" height="20px")
+        a.disabled(href="#")
+          img(src="img/digipounds-logo.png", alt="digipounds-logo")
+        a.disabled(href="#")
+          img(src="img/taffomicron-logo.png", alt="taffomicron-logo")
   .hb
     .container
       .hb__slides
