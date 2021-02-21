@@ -12,6 +12,7 @@ const showcaseBannerNextArrow = $('.sc__banner__arrow--next');
 const showcaseBannerPrevArrow = $('.sc__banner__arrow--prev');
 const showcaseDetailSlides = $('.sc__detail__slides');
 
+const dealsTab = $('.dl__tab');
 const dealsLoading = $('.dl__loading');
 const dealsList = $('.dl__list');
 const dealsLoadMoreButton = $('.dl__more__button');
@@ -53,6 +54,19 @@ $(function(){
       $(this).slick('slickPrev');
     }
   }));
+
+  dealsTab.click(function() {
+    let brandSelected = $(this).attr('value');
+
+    dealsTab.removeClass("active");
+    $(this).addClass('active')
+
+    params.page = 1;
+    params.q = brandSelected;
+
+    dealsList.html('');
+    getListByBrand();
+  })
 
   dealsLoadMoreButton.click(function() {
     $(this).html('<img src="img/svg/loading-white.svg" height="35px" alt="loading">');
