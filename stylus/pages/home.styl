@@ -217,7 +217,7 @@ button($bgColor = 'white', $textColor = 'black')
     button
       padding 15px 30px
 .sc
-  margin 60px 0
+  padding 20px 0
   &__banner__slides
     margin-bottom 20px
   &__banner__arrow
@@ -404,6 +404,12 @@ button
       &__store
         &__content
           margin-top 30px
+  .sc
+    &__detail__slides
+      width 100%
+    &__detail__desc
+      blockquote
+        font 800 20px/28px $font
 
 +break(mobile)
   .hb
@@ -506,3 +512,7 @@ button
       margin-top 30px
       button
         padding 10px 20px
+  .sc
+    &__detail__desc
+      blockquote
+        font 800 18px/24px $font
