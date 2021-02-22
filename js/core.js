@@ -80,6 +80,14 @@ $(function(){
     subBrandList.toggleClass('header__sub__brand--show');
   })
 
+  $('.header__list .header__menu').on('click', function (e) {
+    e.preventDefault()
+
+    $('html, body').animate({
+      scrollTop: $($(this).attr('href')).offset().top - 100,
+    },500)
+  })
+
   getListByBrand()
 })
 
