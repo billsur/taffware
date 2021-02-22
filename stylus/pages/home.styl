@@ -64,19 +64,20 @@ button($bgColor = 'white', $textColor = 'black')
     right 37%
     bottom 40px
 .ab
-  margin-bottom 60px
-  &__content
-    margin-top 80px
+  margin 60px 0
   &__top
     display flex
     justify-content space-between
   &__left
     width 50%
   &__right
-    width 40%
-    padding-left 0px
+    width 45%
+    padding-left 20px
     h3
-      font bold 24px/30px $font
+      font bold 28px/40px $font
+      color black
+    span
+      font normal 18px/26px $font
     &__button
       margin-top 30px
   &__bottom
@@ -92,7 +93,7 @@ button($bgColor = 'white', $textColor = 'black')
       justify-content center
       align-items center
       height inherit
-      padding 35px 60px
+      padding 60px
     &__bpri,
     &__bpro,
     &__bser
@@ -104,6 +105,7 @@ button($bgColor = 'white', $textColor = 'black')
       color white
     &__desc
       color white
+      margin-bottom 0
 .dl
   background-color $light-grey
   padding 10px 0 80px 0
@@ -371,6 +373,23 @@ button
       bottom -25px
       li
         width 10px
+  .ab
+    &__right
+      width 45%
+      h2
+        margin 0
+      h3
+        font bold 20px/24px $font
+        margin 10px 0
+      &__desc
+        font normal 14px/20px $font
+      &__button
+        margin-top 15px
+    &__bottom
+      &__content
+        padding 20px
+        div
+          padding 10px
 
 +break(mobile)
   .hb
@@ -395,3 +414,29 @@ button
       bottom 10px
       li
         width 10px
+  .ab
+    padding 0 20px
+    &__content
+      margin-top 60px
+    &__top
+      flex-direction column
+    &__left
+      width 100%
+    &__right
+      margin-top 20px
+      width 100%
+      h2
+        margin 0
+      h3
+        font bold 18px/24px $font
+        margin 10px 0
+      &__desc
+        font normal 14px/20px $font
+      &__button
+        margin-top 15px
+    &__bottom
+      &__content
+        flex-direction column
+        padding 30px
+        div
+          padding 10px
