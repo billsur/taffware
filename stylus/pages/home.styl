@@ -33,15 +33,13 @@ button($bgColor = 'white', $textColor = 'black')
   &__slides
     &:focus
       outline none
-  &__img
-    height 400px
   &__detail
     position absolute
     top 0
     width 390px
-    margin 60px 0 0 80px
+    margin 100px 0 0 100px
     &__title
-      font 32px/40px $font
+      font 34px/42px $font
       margin-bottom 10px
     &__desc
       font 16px/24px $font
@@ -63,7 +61,7 @@ button($bgColor = 'white', $textColor = 'black')
     &--next
       arrowRight()
   .slick-dots
-    right 38.666%
+    right 37%
     bottom 40px
 .ab
   margin-bottom 60px
@@ -113,7 +111,7 @@ button($bgColor = 'white', $textColor = 'black')
     margin-bottom 20px
   &__tabs
     display flex
-    justify-content space-around
+    justify-content space-between
     cursor pointer
   &__tab
     padding 5px 15px
@@ -131,7 +129,7 @@ button($bgColor = 'white', $textColor = 'black')
     &__img
       width 60px
   &__list
-    min-height 800px
+    min-height 500px
     padding-top 20px
     display grid
     grid-template-columns auto auto auto auto
@@ -143,7 +141,7 @@ button($bgColor = 'white', $textColor = 'black')
       border-radius 15px
       padding 20px
       &__img
-        width 200px
+        width 100%
         margin 0 auto 15px
       &__title
         min-height 70px
@@ -176,7 +174,7 @@ button($bgColor = 'white', $textColor = 'black')
       p
         margin 0
     &__store
-      min-width 200px
+      width 100%
       &__content
         display flex
         flex-direction column
@@ -186,7 +184,6 @@ button($bgColor = 'white', $textColor = 'black')
         span
           font bold 22px/26px $font
           color black
-          padding 0 20px
           margin 20px 0
         a
           margin 10px
@@ -349,3 +346,52 @@ button
     opacity 0.7
   &:focus
     outline none
+
++break(tablet)
+  .hb
+    &__detail
+      width 260px
+      margin 20px 0 0 20px
+      &__title
+        font 22px/28px $font
+        margin-bottom 5px
+      &__desc
+        font 12px/20px $font
+      &__link
+        margin-top 0
+        span
+          font 14px/18px $font
+        &__button
+          display flex
+          a
+            &:nth-child(2)
+              margin 0 5px
+    .slick-dots
+      right 0
+      bottom -25px
+      li
+        width 10px
+
++break(mobile)
+  .hb
+    &__slides
+      margin 0
+    &__detail
+      top auto
+      bottom 35px
+      width 280px
+      margin 00px 0 0 30px
+      &__title
+        font 18px/24px $font
+        margin-bottom 5px
+      &__desc
+        font 12px/18px $font
+      &__link
+        margin-top 0
+        span
+          font 12px/16px $font
+    .slick-dots
+      right 0
+      bottom 10px
+      li
+        width 10px

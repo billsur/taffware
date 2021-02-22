@@ -15,16 +15,22 @@ const showcaseBannerNextArrow = $('.sc__banner__arrow--next');
 const showcaseBannerPrevArrow = $('.sc__banner__arrow--prev');
 const showcaseDetailSlides = $('.sc__detail__slides');
 
+const dealsTabList = $('.dl__tabs');
 const dealsTab = $('.dl__tab');
 const dealsLoading = $('.dl__loading');
 const dealsList = $('.dl__list');
 const dealsLoadMoreButton = $('.dl__more__button');
 
-// ---- API ---- //
+const allArrowElement = $('.hb__arrow, .sc__banner__arrow')
+// ---- API & URL ---- //
 const listItemURL = 'https://apimobile.jakartanotebook.com/v1.6/products/search';
 const jaknotStoreURL = 'https://www.jakartanotebook.com/search';
 const jakmallStoreURL = 'https://www.jakmall.com/search';
 const tokopediaStoreURL = 'https://www.tokopedia.com/taffware/product';
+
+// ---- Media ---- //
+const MEDIA_MOBILE = 599;
+const MEDIA_TABLET = 1050;
 
 // ---- Variable Data ---- //
 var listData = [];
@@ -87,6 +93,24 @@ $(function(){
       scrollTop: $($(this).attr('href')).offset().top - 100,
     },500)
   })
+
+  if(window.innerWidth < MEDIA_TABLET ){
+    allArrowElement.hide()
+  } else {
+    allArrowElement.show()
+  }
+
+  if(window.innerWidth < MEDIA_MOBILE) {
+    dealsTab.click(function () {
+      var leftPos = $(this).position().left;
+      dealsTabList.animate({scrollLeft: leftPos - 100}, 800);
+    });
+
+    for(let i=1; i <= 4 ;i++){
+      $(`.hb__img--${i}`).attr('src', `/img/hb-mobile-${i}.png`)
+    }
+  }
+
 
   getListByBrand()
 })
