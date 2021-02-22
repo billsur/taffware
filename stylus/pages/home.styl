@@ -108,9 +108,11 @@ button($bgColor = 'white', $textColor = 'black')
       margin-bottom 0
 .dl
   background-color $light-grey
-  padding 10px 0 80px 0
+  padding 10px 0 60px 0
   &__banner
     margin-bottom 20px
+    &__img
+      border-radius 15px
   &__tabs
     display flex
     justify-content space-between
@@ -134,8 +136,8 @@ button($bgColor = 'white', $textColor = 'black')
     min-height 500px
     padding-top 20px
     display grid
-    grid-template-columns auto auto auto auto
-    grid-gap 20px
+    grid-template-columns repeat(4, 1fr)
+    grid-gap 15px
     &__item
       position relative
       background white
@@ -167,7 +169,7 @@ button($bgColor = 'white', $textColor = 'black')
           margin-left 5px
           color white
           font-weight bold
-          padding 7px 5px 5px 10px
+          padding 5px 5px 5px 10px
           background url('/img/svg/price-bubble.svg') center / 100% 100% no-repeat
       &__button
         margin-top 15px
@@ -390,6 +392,18 @@ button
         padding 20px
         div
           padding 10px
+  .dl
+    &__tabs
+      overflow scroll
+      flex-direction flex-start
+    &__tab + &__tab
+      margin-right 5px
+    &__list
+      grid-template-columns repeat(2, 1fr)
+      grid-gap 10px
+      &__store
+        &__content
+          margin-top 30px
 
 +break(mobile)
   .hb
@@ -440,3 +454,55 @@ button
         padding 30px
         div
           padding 10px
+  .dl
+    padding 10px 10px 40px 10px
+    &__banner
+      &__img
+        content url('/img/latest-deals-taffstudio-mobile-1.png')
+        border-radius 10px
+    &__tabs
+      overflow scroll
+    &__list
+      &__item
+        border-radius 10px
+        padding 10px
+        &__img
+          min-height 130px
+        &__title
+          min-height 40px
+          font bold 12px/14px $font
+        &__discount
+          &__price
+            display flex
+            align-items center
+            p
+              font bold 12px/14px $font
+          &__percentage
+            font bold 10px/12px $font
+            padding 5px 5px 5px 10px
+        &__button
+          button
+            padding 5px 15px
+      &__store
+        &__content
+          margin-top 0
+          span
+            font bold 14px/20px $font
+            margin 10px 0
+          a
+            margin 5px 10px
+        &__divider
+          bottom 60px
+        &__close
+          bottom 12px
+          left 15px
+          button
+            font-size 12px
+            padding 5px 15px
+            i
+              font-size 14px
+              margin-right 5px
+    &__more
+      margin-top 30px
+      button
+        padding 10px 20px
