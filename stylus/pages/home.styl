@@ -253,7 +253,7 @@ button($bgColor = 'white', $textColor = 'black')
       font 800 26px/34px $font
 .hl
   background-color $light-grey
-  padding 40px 0 80px
+  padding 10px 0 60px
   .accordions
     overflow hidden
     input
@@ -410,6 +410,25 @@ button
     &__detail__desc
       blockquote
         font 800 20px/28px $font
+  .hl
+    .accordions
+      input
+        &:checked
+          +.accordion-label
+            &:before
+              transform rotate(90deg) scale(0.5)
+          &~.accordion-content
+            padding-left 100px
+      .accordion
+        &-label
+          padding 20px 15px
+          font 800 18px/26px $font
+          &::before
+            margin-right 5px
+            transform scale(0.5)
+        &-content
+          padding-left 100px
+          font 500 14px/24px $font
 
 +break(mobile)
   .hb
@@ -516,3 +535,21 @@ button
     &__detail__desc
       blockquote
         font 800 18px/24px $font
+  .hl
+    .accordions
+      input
+        &:checked
+          +.accordion-label
+            &:before
+              transform rotate(90deg) scale(0.4)
+          &~.accordion-content
+            padding-left 85px
+      .accordion
+        &-label
+          padding 15px 20px 15px 0
+          font 800 16px/24px $font
+          &::before
+            transform scale(0.4)
+        &-content
+          padding-left 85px
+          font 500 14px/20px $font
