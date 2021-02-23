@@ -295,7 +295,7 @@ button($bgColor = 'white', $textColor = 'black')
 .tcopy
   background $red
   .container
-    padding 40px 0
+    padding 40px
   h1,
   h2,
   p,
@@ -303,7 +303,7 @@ button($bgColor = 'white', $textColor = 'black')
   b
     color white
 .tc
-  padding-top 30px
+  padding-top 10px
   .container
     border-bottom 1px solid white
     display flex
@@ -323,7 +323,7 @@ button($bgColor = 'white', $textColor = 'black')
   a
     text-decoration underline
     img
-      margin-right 5px
+      margin-right 15px
 .tseo
   h1
     font bold 38px $font-h
@@ -429,6 +429,25 @@ button
         &-content
           padding-left 100px
           font 500 14px/24px $font
+  .tc,
+  .tseo,
+  .tcopy
+    .container
+      padding 40px 0
+  .tc
+    .container
+      flex-direction column
+    &__inquiry
+      width 100%
+      text-align center
+      margin-bottom 20px
+    &__link
+      width 100%
+  .tseo
+    h1
+      font bold 30px $font-h
+    h2
+      font bold 24px $font-h
 
 +break(mobile)
   .hb
@@ -553,3 +572,18 @@ button
         &-content
           padding-left 85px
           font 500 14px/20px $font
+  .tc,
+  .tseo,
+  .tcopy
+    padding 0 20px
+  .tc
+    &__link
+      a
+        font-size 12px
+        img
+          margin-right 5px
+  .tseo
+    h1
+      font bold 26px $font-h
+    h2
+      font bold 20px $font-h
