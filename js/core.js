@@ -42,8 +42,14 @@ var params = {
   q: 'taffstudio'
 };
 
+var bgColorSlides = [
+  '#e1f1fe', '#ebebeb', '#e3e3e3', '#c1e0eb'
+]
+
 $(function(){
-  homeBannerSlides.slick(
+  homeBannerSlides.on('init', (function() {
+    $(this).parent().parent().css('background', bgColorSlides[0])
+  })).slick(
     slickProps(1, homeBannerPrevArrow ,homeBannerNextArrow, false, true)
   );
 
@@ -62,7 +68,11 @@ $(function(){
     } else {
       $(this).slick('slickPrev');
     }
-  }));
+  }))
+
+  homeBannerSlides.on('beforeChange', function(e, slick, currentSlide, nextSlide){
+    $(this).parent().parent().css('background', bgColorSlides[nextSlide])
+  });
 
   dealsTab.click(function() {
     let brandSelected = $(this).attr('value');
