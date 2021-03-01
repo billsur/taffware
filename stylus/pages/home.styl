@@ -1,208 +1,596 @@
-@keyframes banner_home
-	from
-		width 100%
-	to
-		width 115%
-@keyframes banner_home_mobile
-	from
-		height 100%
-	to
-		height 130%
-.banner--home
-	.container
-		display flex
-		height 100%
-		align-items center
-.home__pbanner
-	background url('/assets/img/banner-contact.jpg') center repeat
-	height 600px
-	background-size cover
-.home__bgp
-	background url('/assets/img/bg-project.svg') center top repeat-x
-	height 140px
-	margin-top -240px
-	z-index 2
-	position relative
-.home__bg
-	background white
-	position relative
-.home__banner__top
-	color white
-.home__banner__title
-	font 300 45px/80px $font
-.home__banner__button
-	border 1px solid white
-	background rgba(black, .8)
-	color white
-	text-transform uppercase
-	font normal 10px/18px $font
-	letter-spacing 2px
-	padding 10px 20px
-	display inline-block
-	margin-top 20px
-.home__icon
-	display flex
-	margin-top 70px
-	align-items center
-	img
-		width 80px
-.home__icon__text
-	color $purple
-	text-transform uppercase
-	font-size 13px
-	letter-spacing 1px
-	margin-left 10px
-	span
-		font 300 52px/52px $font 
-		display block
-.opening
-	padding-bottom 100px
-.home__more
-	font bold 10px/12px $font
-	color $purple
-	text-transform uppercase
-	letter-spacing 2px
-	text-align center
-	display block
-	margin-top 70px
-	&:after
-		content ''
-		background $gold
-		height 1px
-		width 40px
-		margin 30px auto 0
-		display block
-		transition all .4s
-		opacity 0
-		transform translateX(-10px)
-	&:hover
-		&:after
-			opacity 1
-			transform translateX(0)
-.home__plta__desc
-	color $purple
-	background white
-	position relative
-	z-index 1
-	padding 30px 50px
-.plta
-	padding 0 0 100px 0
-.home__plta
-	position relative
-	display inline-flex
-	align-items flex-start
-	&--pakkat
-		margin-top 100px
-		.home__plta__desc
-			margin-left -40px
-			margin-top -50px
-	&--putih
-		margin-top -50px
-		.home__plta__desc
-			margin-right -40px
-			margin-bottom 20px
-			align-self flex-end
-			text-align right
-			order 1
-			.home__plta__loc
-				&:after
-					margin-left auto
-		.home__plta__img
-			order 2
-	&--future
-		margin-top 100px
-		.home__plta__desc
-			margin-left -40px
-			margin-top 50px
-					
-.home__plta__num
-	color $gold
-	font 300 30px/30px $font
-.home__plta__comp
-	font 300 10px/30px $font
-	text-transform uppercase
-	letter-spacing 1px
-.home__plta__title
-	font bold 26px/30px $font
-	text-transform uppercase
-.home__plta__loc
-	font 300 15px/30px $font
-	&:after
-		content ''
-		height 1px
-		width 40px
-		display block
-		background $gold
-		margin-top 10px
+arrow()
+  position absolute
+  cursor pointer
+  top 40%
+  transition 0.3s
+  width 40px
+  height 40px
 
+arrowLeft()
+  arrow()
+  background url('/img/svg/arrow-left-black.svg') center top / cover no-repeat
+  left 15px
+  &:hover
+    background url('/img/svg/arrow-left-active.svg') center top / cover no-repeat
+
+arrowRight()
+  arrow()
+  background url('/img/svg/arrow-right-black.svg') center top / cover no-repeat
+  right 15px
+  &:hover
+    background url('/img/svg/arrow-right-active.svg') center top / cover no-repeat
+
+button($bgColor = 'white', $textColor = 'black')
+  box-shadow 0px 4px 4px rgba(0, 0, 0, 0.1)
+  border-radius 30px
+  background $bgColor
+  color $textColor
+  font-weight bold
+  padding 10px 20px
+
+.hb
+  margin-top 85px
+  transition all .5s ease-in-out
+  &__slides
+    &:focus
+      outline none
+  &__detail
+    position absolute
+    top 0
+    width 390px
+    margin 100px 0 0 100px
+    &__title
+      font 34px/42px $font
+      margin-bottom 10px
+    &__desc
+      font 16px/24px $font
+    &__link
+      margin-top 15px
+      &__button
+        margin-top 5px
+        a
+          img
+            height 35px
+            width auto
+          &:nth-child(2)
+            margin 0 10px
+          &:focus
+            outline none
+  &__arrow
+    &--prev
+      arrowLeft()
+    &--next
+      arrowRight()
+  .slick-dots
+    right 37%
+    bottom 40px
+.ab
+  margin 60px 0
+  &__top
+    display flex
+    justify-content space-between
+  &__left
+    width 50%
+  &__right
+    width 45%
+    padding-left 20px
+    h3
+      font bold 28px/40px $font
+      color black
+    span
+      font normal 18px/26px $font
+    &__button
+      margin-top 30px
+  &__bottom
+    margin-top 40px
+    background $red
+    border-radius 15px
+    width auto
+    transition all .8s ease-in-out
+    &:hover
+      transform scale(1.05)
+    &__content
+      display flex
+      justify-content center
+      align-items center
+      height inherit
+      padding 60px
+    &__bpri,
+    &__bpro,
+    &__bser
+      text-align center
+      padding 15px
+    &__title
+      font-size 20px
+      font-weight bold
+      color white
+    &__desc
+      color white
+      margin-bottom 0
+.dl
+  background-color $light-grey
+  padding 10px 0 60px 0
+  &__banner
+    margin-bottom 20px
+    &__img
+      border-radius 15px
+  &__tabs
+    display flex
+    justify-content space-between
+    cursor pointer
+  &__tab
+    padding 5px 15px
+    border-radius 20px
+    transition all .2s ease-in
+    &:hover
+      background $gray
+      color white
+    &.active
+      background black
+      color white
+  &__loading
+    text-align center
+    color $red
+    &__img
+      width 60px
+  &__list
+    min-height 500px
+    padding-top 20px
+    display grid
+    grid-template-columns repeat(4, 1fr)
+    grid-gap 15px
+    &__item
+      position relative
+      background white
+      border .5px solid #CCCCCC
+      border-radius 15px
+      padding 20px
+      &__img
+        width 100%
+        margin 0 auto 15px
+      &__title
+        min-height 70px
+        font-weight bold
+        margin-bottom 10px
+        display -webkit-box
+        -webkit-line-clamp 3
+        -webkit-box-orient vertical
+        overflow hidden
+      &__price
+        text-decoration line-through
+        margin 0
+      &__discount
+        &__price
+          display flex
+          align-items center
+          p
+            color red
+            font-weight bold
+        &__percentage
+          margin-left 5px
+          color white
+          font-weight bold
+          padding 5px 5px 5px 10px
+          background url('/img/svg/price-bubble.svg') center / 100% 100% no-repeat
+      &__button
+        margin-top 15px
+        button
+          width 100%
+      p
+        margin 0
+    &__store
+      width 100%
+      &__content
+        display flex
+        flex-direction column
+        text-align center
+        align-items center
+        justify-content center
+        span
+          font bold 22px/26px $font
+          color black
+          margin 20px 0
+        a
+          margin 10px
+      &__divider
+        position absolute
+        border 1px solid #CCCCCC
+        bottom 75px
+        left 0
+        width 100%
+      &__close
+        position absolute
+        bottom 15px
+        left 25px
+        width 80%
+        button
+          display flex
+          align-items center
+          justify-content center
+          text-align center
+          width 100%
+          font-size 18px
+          i
+            margin-right 10px
+  &__more
+    margin-top 40px
+    text-align center
+    button
+      padding 15px 30px
+.sc
+  padding 20px 0
+  &__banner__slides
+    margin-bottom 20px
+  &__banner__arrow
+    &--prev
+      arrowRight()
+    &--next
+      arrowLeft()
+  &__img
+    img
+      transition all .2s linear
+      transition-delay 0.5s
+    &.slick-current
+      img
+        opacity 1
+        padding 0
+        transition-delay 0.5s
+    &:not(.slick-current)
+      img
+        opacity 0.5
+        padding 15px
+        transition-delay 0s
+    &:focus
+      outline none
+  &__detail__slides
+    width 60%
+    padding 0
+    margin auto
+    text-align center
+    &:focus
+      outline none
+  &__detail__desc
+    blockquote
+      font 800 26px/34px $font
+.hl
+  background-color $light-grey
+  padding 10px 0 60px
+  .accordions
+    overflow hidden
+    input
+      position absolute
+      opacity 0
+      z-index -1
+      &:checked
+        +.accordion-label
+          &:before
+            transform rotate(90deg) scale(0.6)
+        &~.accordion-content
+          max-height 100vh
+          padding 0 20px 25px 110px
+    .accordion
+      width 100%
+      color black
+      overflow hidden
+      border-bottom 1px solid $gray
+      &-label
+        display flex
+        justify-content flex-start
+        padding 20px 15px
+        font 800 22px/30px $font
+        cursor pointer
+        align-items center
+        &::before
+          content url('/img/svg/arrow-icon.svg');
+          transform scale(0.6)
+          margin-right 15px
+          transition all .4s
+      &-content
+        max-height 0
+        padding 0 20px 0 110px
+        color $gray
+        font 500 18px/28px $font
+        transition all .35s
+.tc,
+.tseo,
+.tcopy
+  background $red
+  .container
+    padding 40px
+  h1,
+  h2,
+  p,
+  a,
+  b
+    color white
+.tc
+  padding-top 10px
+  .container
+    border-bottom 1px solid white
+    display flex
+  &__inquiry,
+  &__link
+    width 40%
+  &__link
+    display flex
+    justify-content space-around
+    &__store,
+    &__socmed
+      display flex
+      flex-direction column
+  p,
+  a
+    margin 5px 0
+  a
+    text-decoration underline
+    img
+      margin-right 15px
+.tseo
+  h1
+    font bold 38px $font-h
+  h2
+    font bold 26px $font-h
+.tcopy
+  background $red
+  color white
+  .container
+    border-top 1px solid white
+  span
+    display flex
+    justify-content center
+    align-items center
+button
+  border none
+  cursor pointer
+.button
+  button(white, black)
+  border 2px solid $gray
+  &--red
+    button($red, white)
+  &:hover
+    opacity 0.7
+  &:focus
+    outline none
+.button--red,
+.hb__detail__link__button a img,
+.dl__list__store__content a img,
+.dl__banner__img
+  &:hover
+    filter brightness(.8)
 
 +break(tablet)
-	.home__icons
-		display flex
-		justify-content space-between
-		margin-bottom 30px
-	.home__icon
-		margin-top 0
-		img
-			width 50px
-	.home__icon__text
-		font-size 11px
-		span
-			font 300 40px/40px $font
-	.home__pbanner
-		height 350px
-	.opening
-		padding 0
-		.container
-			padding 40px 20px 70px
-	.home__bgp
-		background-size cover
-		height 80px
-		margin-top -80px
-	.bgp
-		padding 0 20px
-	.plta
-		.container
-			padding 0 20px
-	.home__plta__img
-		width 250px
+  .hb
+    &__detail
+      width 260px
+      margin 20px 0 0 20px
+      &__title
+        font 22px/28px $font
+        margin-bottom 5px
+      &__desc
+        font 12px/20px $font
+      &__link
+        margin-top 0
+        span
+          font 14px/18px $font
+        &__button
+          display flex
+          a
+            &:nth-child(2)
+              margin 0 5px
+    .slick-dots
+      right 0
+      bottom -25px
+      li
+        width 10px
+  .ab
+    &__right
+      width 45%
+      h2
+        margin 0
+      h3
+        font bold 20px/24px $font
+        margin 10px 0
+      &__desc
+        font normal 14px/20px $font
+      &__button
+        margin-top 15px
+    &__bottom
+      &__content
+        padding 20px
+        div
+          padding 10px
+  .dl
+    &__tabs
+      overflow scroll
+      flex-direction flex-start
+    &__tab + &__tab
+      margin-right 5px
+    &__list
+      grid-template-columns repeat(2, 1fr)
+      grid-gap 10px
+      &__store
+        &__content
+          margin-top 30px
+  .sc
+    &__detail__slides
+      width 100%
+    &__detail__desc
+      blockquote
+        font 800 20px/28px $font
+  .hl
+    .accordions
+      input
+        &:checked
+          +.accordion-label
+            &:before
+              transform rotate(90deg) scale(0.5)
+          &~.accordion-content
+            padding-left 100px
+      .accordion
+        &-label
+          padding 20px 15px
+          font 800 18px/26px $font
+          &::before
+            margin-right 5px
+            transform scale(0.5)
+        &-content
+          padding-left 100px
+          font 500 14px/24px $font
+  .tc,
+  .tseo,
+  .tcopy
+    .container
+      padding 40px 0
+  .tc
+    .container
+      flex-direction column
+    &__inquiry
+      width 100%
+      text-align center
+      margin-bottom 20px
+    &__link
+      width 100%
+  .tseo
+    h1
+      font bold 30px $font-h
+    h2
+      font bold 24px $font-h
 
 +break(mobile)
-	.banner--home
-		.container
-			align-items flex-end
-			padding-bottom 100px
-	.home__banner__top
-		text-align center
-	.home__banner__title
-		font 300 30px/40px $font
-	.home__icons
-		display block
-		justify-content center
-	.home__icon
-		width 150px
-		margin 0 auto 20px
-	.home__more
-		text-align left
-	.home__plta
-		display block
-		&--pakkat
-			.home__plta__desc
-				margin 0
-				padding 20px 0
-		&--putih
-			margin-top 100px
-			.home__plta__desc
-				text-align left
-				margin 0
-				padding 20px 0
-				.home__plta__loc
-					&:after
-						margin-left 0
-					
-
-
-
-
-
-
+  .hb
+    &__slides
+      margin 0
+    &__detail
+      top auto
+      bottom 35px
+      width 280px
+      margin 00px 0 0 30px
+      &__title
+        font 18px/24px $font
+        margin-bottom 5px
+      &__desc
+        font 12px/18px $font
+      &__link
+        margin-top 0
+        span
+          font 12px/16px $font
+    .slick-dots
+      right 0
+      bottom 10px
+      li
+        width 10px
+  .ab
+    padding 0 20px
+    &__content
+      margin-top 60px
+    &__top
+      flex-direction column
+    &__left
+      width 100%
+    &__right
+      margin-top 20px
+      width 100%
+      h2
+        margin 0
+      h3
+        font bold 18px/24px $font
+        margin 10px 0
+      &__desc
+        font normal 14px/20px $font
+      &__button
+        margin-top 15px
+    &__bottom
+      &__content
+        flex-direction column
+        padding 30px
+        div
+          padding 10px
+  .dl
+    padding 10px 10px 40px 10px
+    &__banner
+      &__img
+        content url('/img/latest-deals-taffstudio-mobile-1.png')
+        border-radius 10px
+    &__tabs
+      overflow scroll
+    &__list
+      &__item
+        border-radius 10px
+        padding 10px
+        &__img
+          min-height 130px
+        &__title
+          min-height 40px
+          font bold 12px/14px $font
+        &__discount
+          &__price
+            display flex
+            align-items center
+            p
+              font bold 12px/14px $font
+          &__percentage
+            font bold 10px/12px $font
+            padding 5px 5px 5px 10px
+        &__button
+          button
+            padding 5px 15px
+      &__store
+        &__content
+          margin-top 0
+          span
+            font bold 14px/20px $font
+            margin 10px 0
+          a
+            margin 5px 10px
+        &__divider
+          bottom 60px
+        &__close
+          bottom 12px
+          left 15px
+          button
+            font-size 12px
+            padding 5px 15px
+            i
+              font-size 14px
+              margin-right 5px
+    &__more
+      margin-top 30px
+      button
+        padding 10px 20px
+  .sc
+    &__detail__desc
+      blockquote
+        font 800 18px/24px $font
+  .hl
+    .accordions
+      input
+        &:checked
+          +.accordion-label
+            &:before
+              transform rotate(90deg) scale(0.4)
+          &~.accordion-content
+            padding-left 85px
+      .accordion
+        &-label
+          padding 15px 20px 15px 0
+          font 800 16px/24px $font
+          &::before
+            transform scale(0.4)
+        &-content
+          padding-left 85px
+          font 500 14px/20px $font
+  .tc,
+  .tseo,
+  .tcopy
+    padding 0 20px
+  .tc
+    &__link
+      a
+        font-size 12px
+        img
+          margin-right 5px
+  .tseo
+    h1
+      font bold 26px $font-h
+    h2
+      font bold 20px $font-h

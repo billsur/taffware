@@ -1,6 +1,95 @@
 a
     text-decoration none
-    border-bottom 1px solid #f00
-    color #f00
     cursor pointer
     display inline-block
+    &:initial
+        color white
+.link
+    display inline-flex
+    align-items center
+    font-family $font
+    font-weight 600
+    color $light-blue
+    img
+        margin-right 15px
+    &--yellow
+        color $yellow
+b
+    font-weight 600
+p
+    color #6c6c76
+    font normal 16px/24px $font
+    &.p--small
+        font 12px/18px $font
+        margin 5px 0
+        color #616161
+h1
+    font 500 56px/64px $font-h
+    margin 10px 0
+h2
+    font 500 40px/48px $font-h
+    color #464646
+h3
+    color #464646
+    font 24px/32px $font-x
+hr
+    margin 30px 0
+    border 1px solid #DCDBDB
+figure
+    margin 30px 0
+ul
+    padding-left 20px
+    li
+        margin 3px 0
+figcaption
+    color #6f6f6f
+    padding 10px 0
+    font 12px/18px $font
+    border-bottom 1px solid #dedede
+    display block
+.text--black
+    color black!important
+.text--white
+    color white!important
+.text--green
+    color #018b44!important
+.text--yellow
+    color $yellow!important
+.text--red
+    color $red!important
+.text--upper
+    text-transform uppercase
+.text--right
+    text-align right!important
+.text--left
+    text-align left!important
+.text--center
+    text-align center!important
+    justify-content center!important
+.text--bold
+    font-weight bold!important
+section
+    position relative
+
++break(tablet)
+    h1
+        font 500 48px/56px $font-h
+    h2
+        font 500 30px/40px $font-h
+    h3
+        font 20px/28px $font-x
+    p
+        font normal 14px/22px $font
+
++break(mobile)
+    h1
+        font bold 24px/30px $font-h
+    h2
+        font 500 22px/30px $font-h
+    h3
+        font 18px/26px $font-x
+    p
+        font normal 14px/24px $font
+    small
+        font normal 12px/14px $font-h
+        opacity .7

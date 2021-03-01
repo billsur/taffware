@@ -1,0 +1,87 @@
+header
+  position fixed
+  top 0
+  left 0
+  width 100%
+  background white
+  z-index 10
+  box-shadow 0 5px 3px -3px #CCCC
+  .container
+    display flex
+    flex-direction column
+    a
+      color black
+    .header
+      &__list,
+      &__sub__brand
+        display flex
+      &__list
+        padding 30px 40px
+        background white
+        z-index 10
+        a
+          display flex
+          align-items center
+          padding 0 15px
+      &__logo
+        margin-right 20px
+        width 180px
+      &__sub__brand
+        position absolute
+        z-index 1
+        width 100%
+        top 0
+        padding 20px
+        border-bottom-left-radius 15px
+        border-bottom-right-radius 15px
+        background white
+        box-shadow 0 5px 3px -3px #CCCC
+        transition all .5s ease-in-out
+        .container
+          display flex
+          flex-direction row
+          justify-content space-between
+          a
+            display flex
+            align-items center
+            background #F5F5F5
+            border-radius 5px
+            padding 5px 10px
+            flex-shrink 0
+            text-align center
+            &.disabled
+              background #AAAA
+              cursor auto
+            &:not(.disabled)
+              &:hover
+                filter brightness(80%)
+        &--show
+          top 65px
+
++break(tablet)
+  header
+    .container
+      .header
+        &__logo
+          width 150px
+        &__list
+          display flex
+          justify-content space-between
+          padding 30px 20px
+          a
+            padding 0
+            &:not(.expandable)
+              display none
+        &__sub__brand
+          .container
+            overflow scroll
+            a
+              margin-right 15px
+
++break(mobile)
+  header
+    .container
+      .header
+        &__logo
+          margin-right 0
+          width 120px
