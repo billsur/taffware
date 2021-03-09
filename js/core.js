@@ -168,13 +168,13 @@ function getListByBrand () {
             <div class="dl__list__store" hidden>
               <div class="dl__list__store__content">
                 <span>Buy this product at:</span>
-                <a href="${jaknotStoreURL}?key=${item.sku}" target="_blank">
+                <a href="${generateTrackingURL(jaknotStoreURL, 'official-website-taffware', `menu-${params.q}`, `sku-${item.sku}`, `${params.q}-20210303`)}&key=${item.sku}" target="_blank">
                   <img src="img/svg/jaknot-button-red.svg">
                 </a>
-                <a href="${jakmallStoreURL}?q=${item.sku}" target="_blank">
+                <a href="${generateTrackingURL(jakmallStoreURL, 'official-website-taffware', `button-jakmall-${params.q}`, `sku-${item.sku}`, `${params.q}-20210303`)}&q=${item.sku}" target="_blank">
                   <img src="img/svg/jakmall-button-red.svg">
                 </a>
-                <a href="${tokopediaStoreURL}?keyword=${item.sku}" target="_blank">
+                <a href="${generateTrackingURL(tokopediaStoreURL, 'official-website-taffware', 'logo-tokopedia', 'official-website-tokopedia', 'official-website-taffware-20210303')}&keyword=${item.sku}" target="_blank">
                   <img src="img/svg/tokopedia-button-red.svg">
                 </a>
               </div>
@@ -257,6 +257,10 @@ function slickProps(slideShow = 1, prevSelector, nextSelector, isCenter, isUseDo
     prevArrow: prevSelector,
 		nextArrow: nextSelector
   }
+}
+
+function generateTrackingURL (url, source, medium, content, campaign) {
+  return url + `?utm_source=${source}&utm_medium=${medium}&utm_content=${content}&utm_campaign=${campaign}`;
 }
 
 //  ----------- Utils ---------------
